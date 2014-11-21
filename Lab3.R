@@ -1,4 +1,4 @@
-cancer = read.table('C:/stud/cancer.csv', header=FALSE, sep = ",", dec = ".")
+cancer = read.table('C:/R-Portable/cancer.csv', header=FALSE, sep = ",", dec = ".")
 summary(cancer)
 hist(cancer$V1, breaks=15)
 hist(cancer$V2, breaks=15)
@@ -34,7 +34,7 @@ momentum.global=0.01, error.criterium="LMS",
 hidden.layer="sigmoid", output.layer="sigmoid",
 method="ADAPTgdwm")
 
-net2 = newff(n.neurons=c(3,15,2), learning.rate.global=0.1,
+net2 = newff(n.neurons=c(3,10,2), learning.rate.global=0.1,
 momentum.global=0.01, error.criterium="LMS",
 hidden.layer="sigmoid", output.layer="sigmoid",
 method="ADAPTgdwm")
@@ -47,19 +47,19 @@ method="ADAPTgdwm")
 result1 = train(net=net1, P=tr[,1:3],
 T=tr[,4:5], Pval=val[,1:3],
 Tval=val[,4:5], error.criterium="LMS",
-report=TRUE, show.step=10, n.shows=10)
+report=TRUE, show.step=100, n.shows=30)
 
 result2 = train(net=net2, P=tr[,1:3],
 T=tr[,4:5], Pval=val[,1:3],
 Tval=val[,4:5], error.criterium="LMS",
-report=TRUE, show.step=10, n.shows=10)
+report=TRUE, show.step=100, n.shows=30)
 
 result3 = train(net=net3, P=tr[,1:3],
 T=tr[,4:5], Pval=val[,1:3],
 Tval=val[,4:5], error.criterium="LMS",
-report=TRUE, show.step=10, n.shows=10)
+report=TRUE, show.step=100, n.shows=30)
 
-test[1:5,1:5]
+test[1:5,4:5]
 
 out1 = sim(result1$net, test[,1:3])
 out1[1:5,1:2]
@@ -69,4 +69,3 @@ out2[1:5,1:2]
 
 out3 = sim(result2$net, test[,1:3])
 out3[1:5,1:2]
-
