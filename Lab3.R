@@ -34,7 +34,7 @@ momentum.global=0.01, error.criterium="LMS",
 hidden.layer="sigmoid", output.layer="sigmoid",
 method="ADAPTgdwm")
 
-net2 = newff(n.neurons=c(3,10,2), learning.rate.global=0.1,
+net2 = newff(n.neurons=c(3,15,2), learning.rate.global=0.1,
 momentum.global=0.01, error.criterium="LMS",
 hidden.layer="sigmoid", output.layer="sigmoid",
 method="ADAPTgdwm")
@@ -47,17 +47,17 @@ method="ADAPTgdwm")
 result1 = train(net=net1, P=tr[,1:3],
 T=tr[,4:5], Pval=val[,1:3],
 Tval=val[,4:5], error.criterium="LMS",
-report=TRUE, show.step=100, n.shows=30)
+report=TRUE, show.step=100, n.shows=50)
 
 result2 = train(net=net2, P=tr[,1:3],
 T=tr[,4:5], Pval=val[,1:3],
 Tval=val[,4:5], error.criterium="LMS",
-report=TRUE, show.step=100, n.shows=30)
+report=TRUE, show.step=100, n.shows=50)
 
 result3 = train(net=net3, P=tr[,1:3],
 T=tr[,4:5], Pval=val[,1:3],
 Tval=val[,4:5], error.criterium="LMS",
-report=TRUE, show.step=100, n.shows=30)
+report=TRUE, show.step=100, n.shows=50)
 
 test[1:5,4:5]
 
